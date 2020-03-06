@@ -1,0 +1,19 @@
+Create a directory called "Docker" using command 
+'mkdir Docker'
+change into the directory using command
+cd Docker
+use a file editor to create a file called 'Dockerfile" using command
+nano Dockerfile
+Edit the file and add the following command
+FROM centos
+RUN yum -y install httpd
+CMD apachectl -DFOREGROUND
+(this command downloads centos from docker hub, and also installs apacheserver)
+(last line of command runs apache at the foreground)
+save and exit
+Lets then create the image by running the command 
+docker build --tag centos_apache:v2 .
+this is telling docker to build the image called centos_apache:v2 in this directory we are in (.)
+Final run is to run this command and expose the port on whatever port you want. for this i will forward my port from 80 to 9090
+docker run -d -p 9090:80 --name Centosdocked centos_apache:v2 
+(this means i told docker to run this image at the foreground (-d), using port 9090:80 (-p) and named my container centosdocked (--name) and the name of my Image
