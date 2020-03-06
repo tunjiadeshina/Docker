@@ -17,3 +17,12 @@ this is telling docker to build the image called centos_apache:v2 in this direct
 Final run is to run this command and expose the port on whatever port you want. for this i will forward my port from 80 to 9090
 docker run -d -p 9090:80 --name Centosdocked centos_apache:v2 
 (this means i told docker to run this image at the foreground (-d), using port 9090:80 (-p) and named my container centosdocked (--name) and the name of my Image
+
+
+
+
+to check your running containers
+docker ps
+docker ps -a (all containers)
+Docker images (list of images)
+docker rm -f "containerid" (-f is to force it to remove incase its running)
